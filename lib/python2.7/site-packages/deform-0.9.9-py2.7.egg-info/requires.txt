@@ -1,0 +1,13 @@
+Chameleon>=2.5.1
+colander>=1.0a1
+peppercorn>=0.3
+translationstring>=1.0
+zope.deprecation
+
+[docs]
+Sphinx
+
+[testing]
+nose
+coverage
+beautifulsoup4

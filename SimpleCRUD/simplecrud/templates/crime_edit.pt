@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:tal="http://xml.zope.org/namespaces/tal">
+<head>
+  <title>Crimes</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+  <link rel="shortcut icon" href="${request.static_path('simplecrud:static/favicon.ico')}" />
+    <link rel="stylesheet" href="${request.static_url('simplecrud:static/pylons.css')}" type="text/css" media="screen" charset="utf-8" />
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+  
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1>Edit a crime statistic</h1>
+<br>
+<a href="${request.route_path('crimes')}">Back to the list</a>
+${renderer.errorlist("global_error")}
+${renderer.begin(request.route_path('crime_edit', id=request.matchdict['id']))}
+  <fieldset>
+    <legend>Crime properties:</legend>
+    state:${renderer.text("state", size=50)}${renderer.errorlist("state")}<br />
+    ctype: ${renderer.text("ctype", size=60)}${renderer.errorlist("ctype")}<br />
+    crime: ${renderer.text("crime", size=150)}${renderer.errorlist("crime")}<br />
+    year: ${renderer.text("year", value='0', size=20)}${renderer.errorlist("year")}<br />
+    count: ${renderer.text("count", size=20)}${renderer.errorlist("count")}<br />
+    ${renderer.hidden("csrf_token", value=request.session.get_csrf_token())}
+  </fieldset>
+<br>
+<input name="submit" type="submit" value="  save  ">
+${renderer.end()}
+
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+pyramid
+repoze.sendmail>=4.1
+
+[docs]
+Sphinx
+docutils
+repoze.sphinx.autointerface
+
+[testing]
+nose
+coverage

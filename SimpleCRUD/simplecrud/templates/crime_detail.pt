@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:tal="http://xml.zope.org/namespaces/tal">
+<head>
+  <title>Crimes</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+  <link rel="shortcut icon" href="${request.static_path('simplecrud:static/favicon.ico')}" />
+  <link rel="stylesheet" href="${request.static_url('simplecrud:static/pylons.css')}" type="text/css" media="screen" charset="utf-8" />
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+  
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1>Crimes detail</h1>
+<br>
+<br>
+<a href="${request.route_path('crimes')}">Back to the list</a>
+<br>
+<fieldset>
+    <legend>crime properties:</legend>
+    state:${crime.state}<br />
+    ctype: ${crime.ctype}<br />
+    crime: ${crime.crime}<br />
+    year: ${crime.year}<br />
+    count: ${crime.count}<br />
+</fieldset>
+<br>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+setuptools
+zope.interface>=3.6.0
+transaction
+
+[docs]
+setuptools
+zope.interface>=3.6.0
+transaction
+Sphinx
+repoze.sphinx.autointerface
+
+[testing]
+setuptools
+zope.interface>=3.6.0
+transaction
+nose
+coverage

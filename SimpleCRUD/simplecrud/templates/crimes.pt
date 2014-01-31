@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:tal="http://xml.zope.org/namespaces/tal">
+<head>
+  <title>Simple CRUD app</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+  <meta name="keywords" content="python web application" />
+  <meta name="description" content="pyramid web application" />
+  <link rel="shortcut icon" href="${request.static_url('simplecrud:static/favicon.ico')}" />
+  <link rel="stylesheet" href="${request.static_url('simplecrud:static/pylons.css')}" type="text/css" media="screen" charset="utf-8" />
+
+   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+  <script src="${request.static_url('simplecrud:static/bootstrap-paginator.min.js')}"></script>
+
+  <style>
+    table#crimedata > tbody > tr > td {
+      text-align:center;
+    }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="offset2 span6">
+      <h1>Test crud app</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="offset2 span6">
+      <a href="${request.route_path('crime_add')}">Add crimes statistics</a>
+    </div>
+    <div class="span2">
+      <a href="${request.route_url('apex_logout')}">Logout</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="offset2 span6">
+      <div id="pagination"></div>
+    </div>
+  </div>
+
+<script type='text/javascript'>
+    var options = {
+        currentPage: 1,
+        totalPages: ${pagecount},
+        onPageChanged: function(e,oldPage,newPage){
+            loadPage(newPage);
+        }
+    }
+
+    function loadPage(num){
+      $.ajax({
+        type: "GET",
+        url: "crimes/" + num,
+        dataType: 'json',
+        success: function(data) {
+            var tableBody = $('table#crimedata > tbody:first');
+            tableBody.empty();
+            $.each(data, function(index) {
+              var d = data[index];
+              var add=$.parseHTML('<tr> \
+                    <td ><a href="/crime/detail/'+ d['id']+'">'+d['state']+'</a></td> \
+                    <td>'+d['ctype']+'</td> \
+                    <td>'+d['crime']+'</td> \
+                    <td>'+d['year']+'</td> \
+                    <td>'+d['count']+'</td> \
+                    <td> \
+                      [<a href="/crime/edit/'+ d['id']+'" >edit</a>] \
+                      [<a href="/crime/delete/'+ d['id']+'">delete</a>] \
+                    </td> \
+                </tr> \
+              ');
+              tableBody.append(add);
+            });
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log("Error getting data");
+        }
+    });
+    }
+
+    loadPage(1);
+
+    $('#pagination').bootstrapPaginator(options);
+</script>
+
+  <div class="row">
+    <div class="offset1 span11">
+      <table id="crimedata">
+        <thead>
+          <th width="50">State</th>
+          <th width="200">Type of crime</th>
+          <th width="200">Crime</th>
+          <th width="200">Year</th>
+          <th width="100">Count</th>
+          <th>Operations</th>
+        </thead>
+        
+        <tbody>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

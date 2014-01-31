@@ -1,0 +1,64 @@
+Metadata-Version: 1.1
+Name: pyramid-mako
+Version: 0.3.1
+Summary: Mako template bindings for the Pyramid web framework
+Home-page: https://github.com/Pylons/pyramid_mako
+Author: Bert JW Regeer
+Author-email: pylons-discuss@googlegroups.com
+License: BSD-derived (http://www.repoze.org/LICENSE.txt)
+Description: `Mako <http://www.makotemplates.org/>`_ bindings for Pyramid
+        ============================================================
+        
+        These are bindings for the `Mako templating system
+        <http://www.makotemplates.org/>`_ for the `Pyramid
+        <http://docs.pylonsproject.org/en/latest/docs/pyramid.html/>`_ web framework.
+        
+        
+        0.3.1 (2013-10-22)
+        ==================
+        
+        - Re-enable lazy loading of the mako renderer, allowing the settings
+          to be configured after pyramid_mako has been included, as long as everything
+          happens in the same commit.
+        
+        0.3 (2013-10-20)
+        ================
+        
+        - Add a new Configurator directive, ``config.add_mako_renderer`` which
+          can be used to add a new mako renderer for a given extension. This
+          directive accepts an optional ``settings_prefix`` to load settings and
+          configuration differently per-renderer as well.
+        
+        - Removed the private APIs, ``IMakoLookup``, ``MakoRendererFactoryHelper``,
+          and ``renderer_factory``. See the new ``config.add_mako_renderer`` API
+          for updating offending code.
+        
+        - Remove dependency on ``pyramid.interfaces.ITemplateRenderer`` from
+          Pyramid 1.5.
+        
+        0.2 (2013-09-07)
+        ================
+        
+        - Docs up-to-date
+        - Latest changes pulled from Pyramid
+        - Latest tests pulled from Pyramid
+        - All tests updated to refer to fixtures in pyramid_mako
+        
+        0.1 (2012-03-12)
+        ================
+        
+        - First release. Extracted from Pyramid core.
+        
+        
+Keywords: web wsgi pylons pyramid
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Framework :: Pylons
+Classifier: License :: Repoze Public License

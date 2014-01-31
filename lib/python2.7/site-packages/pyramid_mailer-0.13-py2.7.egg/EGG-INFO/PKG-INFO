@@ -1,0 +1,51 @@
+Metadata-Version: 1.1
+Name: pyramid-mailer
+Version: 0.13
+Summary: Sendmail package for Pyramid
+Home-page: http://docs.pylonsproject.org/projects/pyramid_mailer/en/latest/
+Author: Dan Jacob
+Author-email: danjac354@gmail.com
+License: BSD
+Description: 
+        pyramid_mailer is a package for taking the pain out of sending emails in your
+        Pyramid project.  It is compatible with Python 2.5, 2.6, 2.7, and 3.2.
+        
+        This includes:
+        
+        1. Wrapping the low-level Python email library with an easy-to-use
+           API, which includes attachments and mulipart content.
+        
+        2. Send emails immediately or to add to a maildir queue.
+        
+        3. Managing email sends inside a transaction, to prevent emails being sent
+           if your code fails.
+        
+        4. Features to help with unit testing.
+        
+        pyramid_mailer uses the repoze_sendmail library for managing email sending
+        and transacton management, and borrows code from Zed Shaw's Lamson for
+        wrapping email messages.
+        
+        Links
+        `````
+        
+        * `documentation
+          <http://docs.pylonsproject.org/projects/pyramid_mailer/en/latest/>`_
+        * `development version
+          <https://github.com/Pylons/pyramid_mailer>`_
+        
+        
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Communications :: Email
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Framework :: Pyramid
